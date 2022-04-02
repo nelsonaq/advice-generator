@@ -44,7 +44,7 @@ body {
 
 .divider {
   padding-top: 1.75rem;
-  padding-bottom: 4rem;
+  padding-bottom: 5rem;
 }
 
 .divider-2 {
@@ -56,11 +56,16 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 17.75rem;
+  top: 19rem;
   left: auto;
   background-color: hsl(150, 100%, 66%);
   padding: 1.25rem;
   border-radius: 50%;
+}
+
+.dice:hover {
+  cursor: pointer;
+  box-shadow: 0 0 2.5rem hsl(150, 100%, 66%);
 }
 
 @media (min-width: 37rem) {
