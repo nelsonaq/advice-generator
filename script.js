@@ -24,7 +24,7 @@ const renderUI = function (obj) {
   if (!obj) return;
 
   adviceId.textContent = `ADVICE #${obj.id}`;
-  advice.textContent = obj.advice;
+  advice.textContent = `"${obj.advice}"`;
 };
 
 /**
