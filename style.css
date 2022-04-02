@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+}
+
+body {
+  background-color: hsl(218, 23%, 16%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: hsl(217, 19%, 24%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 21.75rem;
+  border-radius: 0.875rem;
+  position: relative;
+}
+
+.adv-num {
+  color: hsl(150, 100%, 66%);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.25rem;
+  padding: 2rem;
+}
+
+.adv {
+  color: hsl(193, 38%, 86%);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  padding: 0 1rem;
+}
+
+.divider {
+  padding-top: 1.5rem;
+  padding-bottom: 4rem;
+}
+
+.dice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 17.75rem;
+  left: 8.75rem;
+  background-color: hsl(150, 100%, 66%);
+  padding: 1.25rem;
+  border-radius: 50%;
+}
