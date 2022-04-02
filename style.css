@@ -21,10 +21,9 @@ body {
   align-items: center;
   width: 21.75rem;
   border-radius: 0.875rem;
-  position: relative;
 }
 
-.adv-num {
+.advice-id {
   color: hsl(150, 100%, 66%);
   font-size: 0.6875rem;
   font-weight: 600;
@@ -33,18 +32,24 @@ body {
   padding-bottom: 1.75rem;
 }
 
-.adv {
+.advice-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 10rem;
+}
+
+.advice {
   color: hsl(193, 38%, 86%);
   text-align: center;
   font-size: 1.5rem;
   font-weight: 800;
   padding: 0 1rem;
-  height: 8rem;
 }
 
 .divider {
   padding-top: 1.75rem;
-  padding-bottom: 5rem;
+  padding-bottom: 0.75rem;
 }
 
 .divider-2 {
@@ -55,8 +60,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 19rem;
+  position: relative;
+  top: 2rem;
   left: auto;
   background-color: hsl(150, 100%, 66%);
   padding: 1.25rem;
@@ -74,11 +79,11 @@ body {
     width: 33.5rem;
   }
 
-  .adv-num {
+  .advice-id {
     font-size: 0.8125rem;
   }
 
-  .adv {
+  .advice {
     font-size: 1.75rem;
     max-width: 30rem;
   }

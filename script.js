@@ -1,21 +1,28 @@
 const dice = document.querySelector(".dice");
+const advice = document.querySelector(".advice");
+const adviceId = document.querySelector(".advice-id");
 
 const randomNumber = function (min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-const fetchAdv = async function (num) {
-  const response = await fetch(`https://api.adviceslip.com/advice/${num}`);
+const renderUI = function (obj) {
+  //* Guard Clause
+  if (!obj) return;
+
+  adviceId.textContent = `ADVICE #${obj.id}`;
+  advice.textContent = obj.advice;
+};
+
+const generateAdvice = async function () {
+  const response = await fetch(
+    `https://api.adviceslip.com/advice/${randomNumber(1, 224)}`
+  );
+  //* Guard Clause
+  if (!response) return;
+
   const data = await response.json();
-  return data;
+  renderUI(data.slip);
 };
 
-const renderAdv = async function () {
-  const randomNum = randomNumber(1, 224);
-  console.log(randomNum);
-  const advSlip = await fetchAdv(randomNum);
-  const advObj = advSlip.slip;
-  console.log(advObj);
-};
-
-dice.addEventListener("click", renderAdv);
+dice.addEventListener("click", generateAdvice);
