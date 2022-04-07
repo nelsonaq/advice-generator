@@ -27,19 +27,29 @@ const renderUI = function (obj) {
   advice.textContent = `"${obj.advice}"`;
 };
 
+const renderError = function () {
+  adviceId.textContent = `ERROR`;
+  advice.textContent = `"Failed to fetch the advice from API"`;
+};
+
 /**
  * Generates advice coming from the Advice Slip API
  * @returns {undefined} - Returns when the fetch is unsuccessful.
  */
 const generateAdvice = async function () {
-  const response = await fetch(
-    `https://api.adviceslip.com/advice/${randomNumber(1, 224)}`
-  );
-  //* Guard Clause
-  if (!response) return;
+  try {
+    const response = await fetch(
+      `https://api.adviceslip.com/advice/${randomNumber(1, 224)}`
+    );
+    //* Guard Clause
+    if (!response) return;
 
-  const data = await response.json();
-  renderUI(data.slip);
+    const data = await response.json();
+    renderUI(data.slip);
+  } catch (err) {
+    renderError();
+    console.error(err.message);
+  }
 };
 
 dice.addEventListener("click", generateAdvice);
