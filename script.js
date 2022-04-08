@@ -3,6 +3,7 @@
 const dice = document.querySelector(".dice");
 const advice = document.querySelector(".advice");
 const adviceId = document.querySelector(".advice-id");
+const loading = document.querySelector(".loading");
 
 /**
  * Generates random number between the given parameters
@@ -22,7 +23,7 @@ const randomNumber = function (min, max) {
 const renderUI = function (obj) {
   //* Guard Clause
   if (!obj) return;
-
+  loading.style.display = "none";
   adviceId.textContent = `ADVICE #${obj.id}`;
   advice.textContent = `"${obj.advice}"`;
 };
@@ -32,12 +33,18 @@ const renderError = function () {
   advice.textContent = `"Failed to fetch the advice from API"`;
 };
 
+const renderLoading = function () {
+  advice.textContent = "";
+  loading.style.display = "flex";
+};
+
 /**
  * Generates advice coming from the Advice Slip API
  * @returns {undefined} - Returns when the fetch is unsuccessful.
  */
 const generateAdvice = async function () {
   try {
+    renderLoading();
     const response = await fetch(
       `https://api.adviceslip.com/advice/${randomNumber(1, 224)}`
     );

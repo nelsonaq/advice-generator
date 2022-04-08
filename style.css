@@ -34,6 +34,7 @@ body {
 
 .advice-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 10rem;
@@ -45,6 +46,39 @@ body {
   font-size: 1.5rem;
   font-weight: 800;
   padding: 0 1rem;
+}
+
+.loading {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  width: 4rem;
+}
+
+.loading div {
+  height: 1rem;
+  width: 1rem;
+  background-color: hsl(193, 38%, 86%);
+  border-radius: 50%;
+  animation: bounce 0.5s cubic-bezier(0.19, 0.57, 0.3, 0.98) infinite alternate;
+}
+
+.loading div:nth-child(2) {
+  opacity: 0.7;
+  animation-delay: 0.1s;
+}
+.loading div:nth-child(3) {
+  opacity: 0.5;
+  animation-delay: 0.2s;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-2rem);
+  }
 }
 
 .divider {
