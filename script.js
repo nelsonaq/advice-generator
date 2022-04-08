@@ -23,7 +23,7 @@ const randomNumber = function (min, max) {
 const renderUI = function (obj) {
   //* Guard Clause
   if (!obj) return;
-  loading.style.display = "none";
+  loading.classList.toggle("hide");
   adviceId.textContent = `ADVICE #${obj.id}`;
   advice.textContent = `"${obj.advice}"`;
 };
@@ -35,7 +35,7 @@ const renderError = function () {
 
 const renderLoading = function () {
   advice.textContent = "";
-  loading.style.display = "flex";
+  loading.classList.toggle("hide");
 };
 
 /**
@@ -54,7 +54,10 @@ const generateAdvice = async function () {
     const data = await response.json();
     renderUI(data.slip);
   } catch (err) {
-    renderError();
+    setTimeout(() => {
+      renderError();
+      loading.classList.toggle("hide");
+    }, 5000);
     console.error(err.message);
   }
 };

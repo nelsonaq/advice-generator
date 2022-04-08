@@ -48,8 +48,12 @@ body {
   padding: 0 1rem;
 }
 
+.hide {
+  opacity: 0;
+}
+
 .loading {
-  display: none;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   width: 4rem;
