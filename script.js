@@ -28,11 +28,17 @@ const renderUI = function (obj) {
   advice.textContent = `"${obj.advice}"`;
 };
 
+/**
+ * Renders error in the UI
+ */
 const renderError = function () {
   adviceId.textContent = `ERROR`;
   advice.textContent = `"Failed to fetch the advice from API"`;
 };
 
+/**
+ * Renders the loading animation UI
+ */
 const renderLoading = function () {
   advice.textContent = "";
   loading.classList.toggle("hide");
