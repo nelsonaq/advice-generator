@@ -24,6 +24,7 @@ const renderUI = function (obj) {
   //* Guard Clause
   if (!obj) return;
   loading.classList.toggle("hide");
+  loading.classList.toggle("display");
   adviceId.textContent = `ADVICE #${obj.id}`;
   advice.textContent = `"${obj.advice}"`;
 };
@@ -42,6 +43,7 @@ const renderError = function () {
 const renderLoading = function () {
   advice.textContent = "";
   loading.classList.toggle("hide");
+  loading.classList.toggle("display");
 };
 
 /**

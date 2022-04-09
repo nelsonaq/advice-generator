@@ -49,11 +49,14 @@ body {
 }
 
 .hide {
-  opacity: 0;
+  display: none;
+}
+
+.display {
+  display: flex;
 }
 
 .loading {
-  display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
