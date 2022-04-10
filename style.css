@@ -15,6 +15,7 @@ body {
 
 .container {
   background-color: hsl(217, 19%, 24%);
+  padding-top: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,12 +24,15 @@ body {
   border-radius: 0.875rem;
 }
 
+.container-loading {
+  padding: 0;
+}
+
 .advice-id {
   color: hsl(150, 100%, 66%);
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.25rem;
-  padding-top: 3rem;
   padding-bottom: 1.75rem;
 }
 
@@ -37,7 +41,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 10rem;
 }
 
 .advice {
@@ -48,50 +51,25 @@ body {
   padding: 0 1rem;
 }
 
-.hide {
-  display: none;
+.rotate {
+  animation: rotateLoading 1s infinite;
 }
 
-.display {
-  display: flex;
-}
-
-.loading {
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 2rem;
-  height: 2rem;
-}
-
-.loading div {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  border: 0.25rem transparent solid;
-  border-radius: 50%;
-}
-
-.loading div:nth-child(1) {
-  border-top-color: hsl(193, 38%, 86%);
-  z-index: 1;
-  animation: revolution 1s linear infinite;
-}
-
-.loading div:nth-child(2) {
-  border-color: hsl(218, 23%, 16%);
-}
-
-@keyframes revolution {
+@keyframes rotateLoading {
   0% {
-    transform: rotate(0);
+    transform: scale(1.2) rotate(0deg);
+  }
+  25% {
+    transform: scale(0.8) rotate(145deg);
   }
   50% {
-    transform: rotate(180deg);
+    transform: scale(1.4) rotate(225deg);
+  }
+  75% {
+    transform: scale(0.8) rotate(315deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: scale(1.2) rotate(360deg);
   }
 }
 
@@ -119,7 +97,9 @@ body {
 }
 
 .dice:active {
-  transform: scale(0.8);
+  transform: rotate(-30deg);
+  opacity: 0.6;
+  box-shadow: none;
 }
 
 @media (min-width: 37rem) {

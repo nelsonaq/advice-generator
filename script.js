@@ -1,6 +1,8 @@
 "use-strict";
 
+const container = document.querySelector(".container");
 const dice = document.querySelector(".dice");
+const img = document.querySelector(".img");
 const advice = document.querySelector(".advice");
 const adviceId = document.querySelector(".advice-id");
 const loading = document.querySelector(".loading");
@@ -23,8 +25,9 @@ const randomNumber = function (min, max) {
 const renderUI = function (obj) {
   //* Guard Clause
   if (!obj) return;
-  loading.classList.toggle("hide");
-  loading.classList.toggle("display");
+  dice.style.backgroundColor = "hsl(150, 100%, 66%)";
+  container.classList.toggle("container-loading");
+  img.classList.toggle("rotate");
   adviceId.textContent = `ADVICE #${obj.id}`;
   advice.textContent = `"${obj.advice}"`;
 };
@@ -42,8 +45,10 @@ const renderError = function () {
  */
 const renderLoading = function () {
   advice.textContent = "";
-  loading.classList.toggle("hide");
-  loading.classList.toggle("display");
+  adviceId.textContent = "";
+  dice.style.backgroundColor = "hsl(193, 38%, 86%)";
+  container.classList.toggle("container-loading");
+  img.classList.toggle("rotate");
 };
 
 /**
@@ -64,7 +69,8 @@ const generateAdvice = async function () {
   } catch (err) {
     setTimeout(() => {
       renderError();
-      loading.classList.toggle("hide");
+      container.classList.toggle("container-loading");
+      img.classList.toggle("rotate");
     }, 5000);
     console.error(err.message);
   }
